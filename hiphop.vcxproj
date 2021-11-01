@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{5cac9647-a967-431b-a8af-7d68808ebc81}</ProjectGuid>
+    <RootNamespace>hiphop</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)lib\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)lib\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)lib\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)lib\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>HIPHOP_USE_RWS;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;C:\dev\rws\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\dev\rws\lib\$(Configuration)\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>rws.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>HIPHOP_USE_RWS;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;C:\dev\rws\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\dev\rws\lib\$(Configuration)\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>rws.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>HIPHOP_USE_RWS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;C:\dev\rws\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\dev\rws\lib\$(Configuration)\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>rws.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>HIPHOP_USE_RWS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;C:\dev\rws\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\dev\rws\lib\$(Configuration)\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>rws.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="include\hiphop.h" />
+    <ClInclude Include="include\hiphop\assets\anim_asset.h" />
+    <ClInclude Include="include\hiphop\assets\anim_list_asset.h" />
+    <ClInclude Include="include\hiphop\assets\anim_table_asset.h" />
+    <ClInclude Include="include\hiphop\assets\attack_table_asset.h" />
+    <ClInclude Include="include\hiphop\assets\bink_asset.h" />
+    <ClInclude Include="include\hiphop\assets\boulder_asset.h" />
+    <ClInclude Include="include\hiphop\assets\bsp_asset.h" />
+    <ClInclude Include="include\hiphop\assets\button_asset.h" />
+    <ClInclude Include="include\hiphop\assets\camera_curve_asset.h" />
+    <ClInclude Include="include\hiphop\assets\cam_asset.h" />
+    <ClInclude Include="include\hiphop\assets\coll_table_asset.h" />
+    <ClInclude Include="include\hiphop\assets\cond_asset.h" />
+    <ClInclude Include="include\hiphop\assets\credits_asset.h" />
+    <ClInclude Include="include\hiphop\assets\cutscene_asset.h" />
+    <ClInclude Include="include\hiphop\assets\cutscene_mgr_asset.h" />
+    <ClInclude Include="include\hiphop\assets\cutscene_streaming_sound_asset.h" />
+    <ClInclude Include="include\hiphop\assets\cutscene_toc_asset.h" />
+    <ClInclude Include="include\hiphop\assets\dash_track_asset.h" />
+    <ClInclude Include="include\hiphop\assets\destruct_obj_asset.h" />
+    <ClInclude Include="include\hiphop\assets\disco_floor_asset.h" />
+    <ClInclude Include="include\hiphop\assets\dispatcher_asset.h" />
+    <ClInclude Include="include\hiphop\assets\duplicator_asset.h" />
+    <ClInclude Include="include\hiphop\assets\dyna\bus_stop_asset.h" />
+    <ClInclude Include="include\hiphop\assets\dyna\pointer_asset.h" />
+    <ClInclude Include="include\hiphop\assets\dyna\taxi_asset.h" />
+    <ClInclude Include="include\hiphop\assets\dyna\teleport_asset.h" />
+    <ClInclude Include="include\hiphop\assets\egen_asset.h" />
+    <ClInclude Include="include\hiphop\assets\env_asset.h" />
+    <ClInclude Include="include\hiphop\assets\fly_asset.h" />
+    <ClInclude Include="include\hiphop\assets\fog_asset.h" />
+    <ClInclude Include="include\hiphop\assets\grass_mesh_asset.h" />
+    <ClInclude Include="include\hiphop\assets\group_asset.h" />
+    <ClInclude Include="include\hiphop\assets\gust_asset.h" />
+    <ClInclude Include="include\hiphop\assets\hangable_asset.h" />
+    <ClInclude Include="include\hiphop_incredibles.h" />
+    <ClInclude Include="include\hiphop_rotu.h" />
+    <ClInclude Include="include\hiphop_tssm.h" />
+    <ClInclude Include="include\hiphop_scooby.h" />
+    <ClInclude Include="include\hiphop_assets.h" />
+    <ClInclude Include="include\hiphop\assets\jaw_data_table_asset.h" />
+    <ClInclude Include="include\hiphop\assets\jsp_asset.h" />
+    <ClInclude Include="include\hiphop\assets\lightkit_asset.h" />
+    <ClInclude Include="include\hiphop\assets\light_asset.h" />
+    <ClInclude Include="include\hiphop\assets\lobmaster_asset.h" />
+    <ClInclude Include="include\hiphop\assets\lod_table_asset.h" />
+    <ClInclude Include="include\hiphop\assets\marker_asset.h" />
+    <ClInclude Include="include\hiphop\assets\material_map_asset.h" />
+    <ClInclude Include="include\hiphop\assets\model_asset.h" />
+    <ClInclude Include="include\hiphop\assets\model_info_asset.h" />
+    <ClInclude Include="include\hiphop\assets\morph_target_asset.h" />
+    <ClInclude Include="include\hiphop\assets\move_point_asset.h" />
+    <ClInclude Include="include\hiphop\assets\navigation_mesh_asset.h" />
+    <ClInclude Include="include\hiphop\assets\npc_asset.h" />
+    <ClInclude Include="include\hiphop\assets\npc_props_asset.h" />
+    <ClInclude Include="include\hiphop\assets\npc_settings_asset.h" />
+    <ClInclude Include="include\hiphop\assets\one_liner_asset.h" />
+    <ClInclude Include="include\hiphop\assets\par_emitter_asset.h" />
+    <ClInclude Include="include\hiphop\assets\par_emitter_props_asset.h" />
+    <ClInclude Include="include\hiphop\assets\par_sys_asset.h" />
+    <ClInclude Include="include\hiphop\assets\pendulum_asset.h" />
+    <ClInclude Include="include\hiphop\assets\pickup_asset.h" />
+    <ClInclude Include="include\hiphop\assets\pickup_table_asset.h" />
+    <ClInclude Include="include\hiphop\assets\pickup_table_asset_in.h" />
+    <ClInclude Include="include\hiphop\assets\pipe_info_table_asset.h" />
+    <ClInclude Include="include\hiphop\assets\platform_asset.h" />
+    <ClInclude Include="include\hiphop\assets\player_asset.h" />
+    <ClInclude Include="include\hiphop\assets\portal_asset.h" />
+    <ClInclude Include="include\hiphop\assets\progress_script_asset.h" />
+    <ClInclude Include="include\hiphop\assets\projectile_asset.h" />
+    <ClInclude Include="include\hiphop\assets\raw_asset.h" />
+    <ClInclude Include="include\hiphop\assets\reactive_animation_table_asset.h" />
+    <ClInclude Include="include\hiphop\assets\scene_settings_asset.h" />
+    <ClInclude Include="include\hiphop\assets\script_asset.h" />
+    <ClInclude Include="include\hiphop\assets\sfx_asset.h" />
+    <ClInclude Include="include\hiphop\assets\shrapnel_asset.h" />
+    <ClInclude Include="include\hiphop\assets\simple_obj_asset.h" />
+    <ClInclude Include="include\hiphop\assets\simple_shadow_table_asset.h" />
+    <ClInclude Include="include\hiphop\assets\slide_props_asset.h" />
+    <ClInclude Include="include\hiphop\assets\sound_asset.h" />
+    <ClInclude Include="include\hiphop\assets\sound_fx_asset.h" />
+    <ClInclude Include="include\hiphop\assets\sound_group_asset.h" />
+    <ClInclude Include="include\hiphop\assets\sound_info_asset.h" />
+    <ClInclude Include="include\hiphop\assets\spline_asset.h" />
+    <ClInclude Include="include\hiphop\assets\spline_path_asset.h" />
+    <ClInclude Include="include\hiphop\assets\streaming_sound_asset.h" />
+    <ClInclude Include="include\hiphop\assets\streaming_texture_asset.h" />
+    <ClInclude Include="include\hiphop\assets\subtitles_asset.h" />
+    <ClInclude Include="include\hiphop\assets\surface_asset.h" />
+    <ClInclude Include="include\hiphop\assets\texture_asset.h" />
+    <ClInclude Include="include\hiphop\assets\text_asset.h" />
+    <ClInclude Include="include\hiphop\assets\throwable_table_asset.h" />
+    <ClInclude Include="include\hiphop\assets\trigger_asset.h" />
+    <ClInclude Include="include\hiphop\assets\ui_asset.h" />
+    <ClInclude Include="include\hiphop\assets\ui_font_asset.h" />
+    <ClInclude Include="include\hiphop\assets\ui_motion_asset.h" />
+    <ClInclude Include="include\hiphop\assets\villain_asset.h" />
+    <ClInclude Include="include\hiphop\assets\volume_asset.h" />
+    <ClInclude Include="include\hiphop\assets\wireframe_asset.h" />
+    <ClInclude Include="include\hiphop\assets\zip_line_asset.h" />
+    <ClInclude Include="include\hiphop\core\base_asset.h" />
+    <ClInclude Include="include\hiphop\core\base_types.h" />
+    <ClInclude Include="include\hiphop\assets\counter_asset.h" />
+    <ClInclude Include="include\hiphop\core\default_asset.h" />
+    <ClInclude Include="include\hiphop\core\dyna_asset.h" />
+    <ClInclude Include="include\hiphop\core\ent_asset.h" />
+    <ClInclude Include="include\hiphop\core\events.h" />
+    <ClInclude Include="include\hiphop\core\math.h" />
+    <ClInclude Include="include\hiphop\assets\timer_asset.h" />
+    <ClInclude Include="include\hiphop\core\asset.h" />
+    <ClInclude Include="include\hiphop\core\link_asset.h" />
+    <ClInclude Include="include\hiphop\core\asset_types.h" />
+    <ClInclude Include="include\hiphop\core\layer_types.h" />
+    <ClInclude Include="include\hiphop\core\asset_editor.h" />
+    <ClInclude Include="include\hiphop\core\endian.h" />
+    <ClInclude Include="include\hiphop\core\file.h" />
+    <ClInclude Include="include\hiphop\core\file_stream.h" />
+    <ClInclude Include="include\hiphop\core\games.h" />
+    <ClInclude Include="include\hiphop\core\languages.h" />
+    <ClInclude Include="include\hiphop\core\layer.h" />
+    <ClInclude Include="include\hiphop\core\memory_stream.h" />
+    <ClInclude Include="include\hiphop\core\motion_asset.h" />
+    <ClInclude Include="include\hiphop\core\platforms.h" />
+    <ClInclude Include="include\hiphop\core\regions.h" />
+    <ClInclude Include="include\hiphop\core\renderware_asset.h" />
+    <ClInclude Include="include\hiphop\core\stream.h" />
+    <ClInclude Include="include\hiphop\core\util.h" />
+    <ClInclude Include="include\hiphop\assets\destructible_asset.h" />
+    <ClInclude Include="include\hiphop_bfbb.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\assets\anim_list_asset.cpp" />
+    <ClCompile Include="src\assets\boulder_asset.cpp" />
+    <ClCompile Include="src\assets\bsp_asset.cpp" />
+    <ClCompile Include="src\assets\button_asset.cpp" />
+    <ClCompile Include="src\assets\cam_asset.cpp" />
+    <ClCompile Include="src\assets\coll_table_asset.cpp" />
+    <ClCompile Include="src\assets\cond_asset.cpp" />
+    <ClCompile Include="src\assets\dispatcher_asset.cpp" />
+    <ClCompile Include="src\assets\dyna\bus_stop_asset.cpp" />
+    <ClCompile Include="src\assets\dyna\taxi_asset.cpp" />
+    <ClCompile Include="src\assets\dyna\teleport_asset.cpp" />
+    <ClCompile Include="src\assets\jsp_asset.cpp" />
+    <ClCompile Include="src\assets\model_asset.cpp" />
+    <ClCompile Include="src\assets\player_asset.cpp" />
+    <ClCompile Include="src\assets\portal_asset.cpp" />
+    <ClCompile Include="src\assets\texture_asset.cpp" />
+    <ClCompile Include="src\assets\text_asset.cpp" />
+    <ClCompile Include="src\assets\timer_asset.cpp" />
+    <ClCompile Include="src\core\base_asset.cpp" />
+    <ClCompile Include="src\assets\counter_asset.cpp" />
+    <ClCompile Include="src\core\asset.cpp" />
+    <ClCompile Include="src\core\dyna_asset.cpp" />
+    <ClCompile Include="src\core\ent_asset.cpp" />
+    <ClCompile Include="src\core\link_asset.cpp" />
+    <ClCompile Include="src\core\asset_editor.cpp" />
+    <ClCompile Include="src\core\file.cpp" />
+    <ClCompile Include="src\core\file_stream.cpp" />
+    <ClCompile Include="src\core\layer.cpp" />
+    <ClCompile Include="src\core\memory_stream.cpp" />
+    <ClCompile Include="src\assets\dyna\pointer_asset.cpp" />
+    <ClCompile Include="src\core\motion_asset.cpp" />
+    <ClCompile Include="src\core\renderware_asset.cpp" />
+    <ClCompile Include="src\core\stream.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
