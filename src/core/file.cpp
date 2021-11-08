@@ -135,7 +135,7 @@ namespace HipHop {
             delete m_stream;
         }
 
-        UnloadAssets();
+        Destroy();
     }
 
     void File::Create(Game game, Platform platform, Region region, Language language)
