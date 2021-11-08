@@ -318,6 +318,27 @@ namespace HipHop {
 
         m_stream->SetEndian(Endian::Big);
 
+        {
+            // Check if valid HIP/HOP file
+
+            if (m_stream->GetSize() - m_stream->Tell() < 8)
+            {
+                return false;
+            }
+
+            size_t oldPos = m_stream->Tell();
+
+            uint32_t hipa;
+            m_stream->Read(&hipa);
+
+            if (hipa != 'HIPA')
+            {
+                return false;
+            }
+
+            m_stream->Seek(oldPos);
+        }
+
         m_blockDepth = -1;
 
         uint32_t id;
