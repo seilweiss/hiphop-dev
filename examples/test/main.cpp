@@ -6,9 +6,8 @@ using namespace HipHop;
 
 int main(int argc, char** argv)
 {
+#if 0
     File hip("bb01.HIP");
-
-#if 1
 
     hip.Create(Game::BattleForBikiniBottom, Platform::GameCube);
 
@@ -91,7 +90,8 @@ int main(int argc, char** argv)
 
     hip.Write();
 
-#else
+#elif 0
+    File hip("bb01.HIP");
 
     if (!hip.Read())
     {
@@ -100,6 +100,13 @@ int main(int argc, char** argv)
 
     hip.Write();
 
+#elif 1
+    File hip("C:\\heavyiron\\tssm\\gc\\backup\\files\\DE\\de01.HIP");
+
+    if (!hip.Read())
+    {
+        return 1;
+    }
 #endif
 
     return 0;

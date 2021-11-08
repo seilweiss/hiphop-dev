@@ -5,6 +5,13 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hiphop", "hiphop.vcxproj", "{5CAC9647-A967-431B-A8AF-7D68808EBC81}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "examples", "examples", "{B1E4D74D-EAE9-4EF0-B05C-388872A83120}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test", "examples\test\test.vcxproj", "{375F6CFA-325F-4CB7-B7E4-BFE527072C5D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5CAC9647-A967-431B-A8AF-7D68808EBC81} = {5CAC9647-A967-431B-A8AF-7D68808EBC81}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,9 +28,20 @@ Global
 		{5CAC9647-A967-431B-A8AF-7D68808EBC81}.Release|x64.Build.0 = Release|x64
 		{5CAC9647-A967-431B-A8AF-7D68808EBC81}.Release|x86.ActiveCfg = Release|Win32
 		{5CAC9647-A967-431B-A8AF-7D68808EBC81}.Release|x86.Build.0 = Release|Win32
+		{375F6CFA-325F-4CB7-B7E4-BFE527072C5D}.Debug|x64.ActiveCfg = Debug|x64
+		{375F6CFA-325F-4CB7-B7E4-BFE527072C5D}.Debug|x64.Build.0 = Debug|x64
+		{375F6CFA-325F-4CB7-B7E4-BFE527072C5D}.Debug|x86.ActiveCfg = Debug|Win32
+		{375F6CFA-325F-4CB7-B7E4-BFE527072C5D}.Debug|x86.Build.0 = Debug|Win32
+		{375F6CFA-325F-4CB7-B7E4-BFE527072C5D}.Release|x64.ActiveCfg = Release|x64
+		{375F6CFA-325F-4CB7-B7E4-BFE527072C5D}.Release|x64.Build.0 = Release|x64
+		{375F6CFA-325F-4CB7-B7E4-BFE527072C5D}.Release|x86.ActiveCfg = Release|Win32
+		{375F6CFA-325F-4CB7-B7E4-BFE527072C5D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{375F6CFA-325F-4CB7-B7E4-BFE527072C5D} = {B1E4D74D-EAE9-4EF0-B05C-388872A83120}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0FC9AD8A-A5D2-48DF-A1CC-43DDAE7A2608}

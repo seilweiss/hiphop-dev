@@ -8,7 +8,7 @@ namespace HipHop {
     {
         DefaultAsset(Asset asset) : AssetEditor(asset) {}
 
-        void Read(Stream* stream) {}
+        void Read(Stream*) {}
         void Write(Stream* stream) { stream->Write(GetData(), GetSize()); }
 
         const void* GetData() const { return GetAsset().GetData(); }

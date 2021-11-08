@@ -185,6 +185,7 @@ namespace HipHop {
         }
 
         m_entAssetsHavePad = (game == Game::BattleForBikiniBottom);
+        m_entAssetsHavePadDetected = true;
 
         switch (game)
         {
@@ -310,6 +311,11 @@ namespace HipHop {
             return false;
         }
 
+        m_game = Game::Unknown;
+        m_platform = Platform::Unknown;
+        m_language = Language::USCommon;
+        m_region = Region::NTSC;
+
         m_stream->SetEndian(Endian::Big);
 
         m_blockDepth = -1;
@@ -419,7 +425,8 @@ namespace HipHop {
             }
         }
 
-        DetectEntAssetsHavePad();
+        m_entAssetsHavePadDetected = false;
+
         InitDefaultSettings();
 
         return true;
@@ -703,6 +710,17 @@ namespace HipHop {
         }
 
         return id;
+    }
+
+    bool File::DoEntAssetsHavePad()
+    {
+        if (!m_entAssetsHavePadDetected)
+        {
+            DetectEntAssetsHavePad();
+            m_entAssetsHavePadDetected = true;
+        }
+
+        return m_entAssetsHavePad;
     }
 
     std::vector<Asset> File::GetAssets()
@@ -1084,6 +1102,8 @@ namespace HipHop {
                 return false;
             }
 
+            len++;
+
             if (ch == '\0')
             {
                 break;
@@ -1361,50 +1381,8 @@ namespace HipHop {
             std::string region = platformInfo[1];
             std::string language = (m_game == Game::BattleForBikiniBottom) ? platformInfo[2] : platformInfo[0];
 
-            static std::map<std::string, Region> regionMap =
-            {
-                { "NTSC", Region::NTSC },
-                { "PAL", Region::PAL }
-            };
-
-            static std::map<std::string, Language> languageMap =
-            {
-                { "US Common", Language::USCommon },
-                { "United Kingdom", Language::UnitedKingdom },
-                { "French", Language::French },
-                { "German", Language::German },
-                { "US", Language::US },
-                { "BE", Language::BE },
-                { "CH", Language::CH },
-                { "CZ", Language::CZ },
-                { "DE", Language::DE },
-                { "DK", Language::DK },
-                { "ES", Language::ES },
-                { "FI", Language::FI },
-                { "FR", Language::FR },
-                { "IT", Language::IT },
-                { "JP", Language::JP },
-                { "KR", Language::KR },
-                { "NL", Language::NL },
-                { "NO", Language::NO },
-                { "PL", Language::PL },
-                { "PT", Language::PT },
-                { "RU", Language::RU },
-                { "SE", Language::SE },
-                { "SK", Language::SK },
-                { "TW", Language::TW },
-                { "UK", Language::UK }
-            };
-
-            if (regionMap.find(region) != regionMap.end())
-            {
-                m_region = regionMap[region];
-            }
-
-            if (languageMap.find(language) != languageMap.end())
-            {
-                m_language = languageMap[language];
-            }
+            m_region = RegionFromString(region);
+            m_language = LanguageFromString(language);
         }
     }
 
@@ -1721,68 +1699,19 @@ namespace HipHop {
         {
         case Game::BattleForBikiniBottom:
         {
-            switch (m_platform)
-            {
-            case Platform::GameCube: WriteString("GameCube"); break;
-            case Platform::PS2: WriteString("PlayStation 2"); break;
-            case Platform::Xbox: WriteString("Xbox"); break;
-            }
-
-            switch (m_region)
-            {
-            case Region::NTSC: WriteString("NTSC"); break;
-            case Region::PAL: WriteString("PAL"); break;
-            }
-
-            switch (m_language)
-            {
-            case Language::USCommon: WriteString("US Common"); break;
-            case Language::UnitedKingdom: WriteString("United Kingdom"); break;
-            case Language::French: WriteString("French"); break;
-            case Language::German: WriteString("German"); break;
-            }
-
+            WriteString(PlatformToString(m_platform));
+            WriteString(RegionToString(m_region));
+            WriteString(LanguageToString(m_language));
             WriteString("Sponge Bob");
-
             break;
         }
         case Game::SpongeBobMovie:
         case Game::Incredibles:
         case Game::RiseOfTheUnderminer:
         {
-            switch (m_language)
-            {
-            case Language::US: WriteString("US"); break;
-            case Language::BE: WriteString("BE"); break;
-            case Language::CH: WriteString("CH"); break;
-            case Language::CZ: WriteString("CZ"); break;
-            case Language::DE: WriteString("DE"); break;
-            case Language::DK: WriteString("DK"); break;
-            case Language::ES: WriteString("ES"); break;
-            case Language::FI: WriteString("FI"); break;
-            case Language::FR: WriteString("FR"); break;
-            case Language::IT: WriteString("IT"); break;
-            case Language::JP: WriteString("JP"); break;
-            case Language::KR: WriteString("KR"); break;
-            case Language::NL: WriteString("NL"); break;
-            case Language::NO: WriteString("NO"); break;
-            case Language::PL: WriteString("PL"); break;
-            case Language::PT: WriteString("PT"); break;
-            case Language::RU: WriteString("RU"); break;
-            case Language::SE: WriteString("SE"); break;
-            case Language::SK: WriteString("SK"); break;
-            case Language::TW: WriteString("TW"); break;
-            case Language::UK: WriteString("UK"); break;
-            }
-
-            switch (m_region)
-            {
-            case Region::NTSC: WriteString("NTSC"); break;
-            case Region::PAL: WriteString("PAL"); break;
-            }
-
+            WriteString(LanguageToString(m_language));
+            WriteString(RegionToString(m_region));
             WriteString("Incredibles");
-
             break;
         }
         }
@@ -2111,6 +2040,7 @@ namespace HipHop {
         m_entAssetsHavePad = false;
 
         bool detected = false;
+        std::vector<AssetInfo*> assetsToUnload;
 
         for (AssetInfo& ainfo : m_assetInfo)
         {
@@ -2139,7 +2069,11 @@ namespace HipHop {
 
             if (isEnt)
             {
-                LoadAsset(ainfo);
+                if (!ainfo.loaded)
+                {
+                    LoadAsset(ainfo);
+                    assetsToUnload.push_back(&ainfo);
+                }
 
                 MemoryStream stream(ainfo.data, ainfo.size);
                 stream.SetEndian(Util::GetPlatformEndian(m_platform));
@@ -2205,7 +2139,10 @@ namespace HipHop {
             }
         }
 
-        UnloadAssets();
+        for (AssetInfo* ainfo : assetsToUnload)
+        {
+            UnloadAsset(*ainfo);
+        }
 
         if (!detected)
         {

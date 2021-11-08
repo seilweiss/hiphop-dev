@@ -83,8 +83,8 @@ namespace HipHop {
         int32_t GetDHDR() const { return m_dhdr; }
         void SetDHDR(int32_t dhdr) { m_dhdr = dhdr; }
         bool IsScoobyBeta() const { return m_scoobyBeta; }
-        void SetScoobyBeta(bool isScoobyBeta) { m_scoobyBeta = true; }
-        bool DoEntAssetsHavePad() const { return m_entAssetsHavePad; }
+        void SetScoobyBeta(bool isScoobyBeta) { m_scoobyBeta = isScoobyBeta; }
+        bool DoEntAssetsHavePad();
 
         std::vector<Asset> GetAssets();
         std::vector<Asset> GetAssets(AssetType type);
@@ -184,7 +184,7 @@ namespace HipHop {
         std::map<AssetType, LayerType> m_defaultAssetTypeLayer; // asset type => layer type
         std::map<AssetType, uint32_t> m_defaultAssetTypeFlags; // asset type => flags
 
-        Game m_game = Game::BattleForBikiniBottom;
+        Game m_game = Game::Unknown;
         Platform m_platform = Platform::GameCube;
         Region m_region = Region::NTSC;
         Language m_language = Language::USCommon;
@@ -203,6 +203,7 @@ namespace HipHop {
         bool m_writeAssetOffsetZeroIfSizeZero = true;
         bool m_scoobyBeta = false;
         bool m_entAssetsHavePad = false;
+        bool m_entAssetsHavePadDetected = false;
 
         std::vector<AssetInfo> m_assetInfo;
         std::vector<LayerInfo> m_layerInfo;
