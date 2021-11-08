@@ -17,7 +17,8 @@ namespace HipHop {
         CUTSCENETOC,
         JSPINFO,
 
-        Count
+        Count,
+        Unknown = -1
     };
 
 }

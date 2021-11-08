@@ -446,6 +446,27 @@ namespace HipHop {
             }
         }
 
+        {
+            Game layerGame = m_game;
+
+            if (m_game == Game::Unknown)
+            {
+                if (m_unknownWhetherGameIsTSSMIncOrROTU)
+                {
+                    layerGame = Game::SpongeBobMovie;
+                }
+                else
+                {
+                    layerGame = Game::ScoobyNightOf100Frights;
+                }
+            }
+
+            for (LayerInfo& linfo : m_layerInfo)
+            {
+                linfo.type = LayerTypeFromInt(linfo.readType, layerGame);
+            }
+        }
+
         m_entAssetsHavePadDetected = false;
 
         InitDefaultSettings();
@@ -1512,12 +1533,10 @@ namespace HipHop {
     void File::ReadLHDR()
     {
         LayerInfo linfo;
-        uint32_t type, assetCount;
+        uint32_t assetCount;
 
-        m_stream->Read(&type);
+        m_stream->Read(&linfo.readType);
         m_stream->Read(&assetCount);
-
-        linfo.type = LayerTypeFromInt(type, m_game);
 
         for (uint32_t i = 0; i < assetCount; i++)
         {

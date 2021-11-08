@@ -171,11 +171,12 @@ namespace HipHop {
         struct LayerInfo
         {
             uint32_t id = 0;
-            LayerType type = LayerType::DEFAULT;
+            LayerType type = LayerType::Unknown;
             int32_t align = -1;
             std::vector<uint32_t> assetIDs;
             uint32_t size = 0;
             uint32_t plus = 0;
+            uint32_t readType = 0;
         };
 
         int32_t m_defaultLayerAlign = 32;
