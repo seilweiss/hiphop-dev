@@ -37,6 +37,8 @@ namespace HipHop {
         void Create(Game game, Platform platform, Region region = Region::NTSC, Language language = Language::USCommon);
         void Destroy();
 
+        void InitDefaultSettings();
+
         Game GetGame() const { return m_game; }
         void SetGame(Game game) { m_game = game; }
         Platform GetPlatform() const { return m_platform; }
@@ -216,8 +218,6 @@ namespace HipHop {
         size_t m_dpakDataStart = 0;
         size_t m_maxLayerSizeWritePos = 0;
         bool m_unknownWhetherGameIsTSSMIncOrROTU = false;
-
-        void InitDefaultSettings();
 
         bool LoadAsset(AssetInfo& asset);
         bool UnloadAsset(AssetInfo& asset);
