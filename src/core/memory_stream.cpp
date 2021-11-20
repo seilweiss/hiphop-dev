@@ -63,7 +63,7 @@ namespace HipHop {
     void MemoryStream::SetData(const void* data, size_t size)
     {
         m_data.clear();
-        m_data.reserve(size);
+        m_data.resize(size);
 
         if (data && size > 0)
         {
