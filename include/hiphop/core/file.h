@@ -90,6 +90,20 @@ namespace HipHop {
 
         std::vector<Asset> GetAssets();
         std::vector<Asset> GetAssets(AssetType type);
+
+        template <class T> std::vector<T> GetAssets()
+        {
+            std::vector<Asset> assets = GetAssets(T::GetStaticType());
+            std::vector<T> editors;
+
+            for (Asset asset : assets)
+            {
+                editors.push_back(T(asset));
+            }
+
+            return editors;
+        }
+
         int GetAssetCount() const { return (int)m_assetInfo.size(); }
         int GetAssetCount(AssetType type) const;
         Asset GetAssetAt(int index) { return Asset(this, m_assetInfo[index].id); }
