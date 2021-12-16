@@ -12,7 +12,7 @@ namespace HipHop {
 
     struct AssetEditor
     {
-        virtual AssetType GetType() const = 0;
+        HIPHOP_ASSET(AssetType::Default);
 
         AssetEditor(Asset asset) : m_asset(asset) {}
         virtual ~AssetEditor() {}
