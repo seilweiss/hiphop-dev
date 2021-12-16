@@ -22,10 +22,10 @@ namespace HipHop {
             return platform == Platform::GameCube ? Endian::Big : Endian::Little;
         }
 
-        inline uint32_t Hash(const std::string& str)
+        inline uint32_t Hash(const std::string& str, uint32_t startValue = 0)
         {
             const char* buf = str.c_str();
-            uint32_t value = 0;
+            uint32_t value = startValue;
 
             while (char c = *buf)
             {

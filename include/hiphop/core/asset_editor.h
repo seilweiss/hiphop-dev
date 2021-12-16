@@ -15,6 +15,7 @@ namespace HipHop {
         virtual AssetType GetType() const = 0;
 
         AssetEditor(Asset asset) : m_asset(asset) {}
+        virtual ~AssetEditor() {}
 
         Asset GetAsset() const { return m_asset; }
         File* GetFile() const { return m_asset.GetFile(); }
