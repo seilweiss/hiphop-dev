@@ -303,6 +303,7 @@
     <ClCompile Include="src\assets\dyna\teleport_asset.cpp" />
     <ClCompile Include="src\assets\env_asset.cpp" />
     <ClCompile Include="src\assets\fog_asset.cpp" />
+    <ClCompile Include="src\assets\group_asset.cpp" />
     <ClCompile Include="src\assets\jsp_asset.cpp" />
     <ClCompile Include="src\assets\marker_asset.cpp" />
     <ClCompile Include="src\assets\model_asset.cpp" />
