@@ -913,7 +913,7 @@ namespace HipHop {
 
     }
 
-    inline std::string EventToString(int event, Game game)
+    inline std::string EventToString(int event, Game game = Game::Unknown)
     {
         static const std::string strings[Event::Count] =
         {
