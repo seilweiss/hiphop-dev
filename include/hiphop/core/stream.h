@@ -30,7 +30,7 @@ namespace HipHop {
         bool AtEnd() const { return Tell() >= GetSize(); }
         void SeekEnd(size_t pos = 0) { Seek(GetSize() - pos); }
         void Skip(size_t amt) { Seek(Tell() + amt); }
-        void Align(int32_t align) { Seek(Util::Align(GetSize(), align)); }
+        void Align(int32_t align) { Seek(Util::Align(Tell(), align)); }
 
         void Clear() { Resize(0); }
 
