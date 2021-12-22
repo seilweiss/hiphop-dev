@@ -305,10 +305,12 @@
     <ClCompile Include="src\assets\fog_asset.cpp" />
     <ClCompile Include="src\assets\group_asset.cpp" />
     <ClCompile Include="src\assets\jsp_asset.cpp" />
+    <ClCompile Include="src\assets\lightkit_asset.cpp" />
     <ClCompile Include="src\assets\marker_asset.cpp" />
     <ClCompile Include="src\assets\model_asset.cpp" />
     <ClCompile Include="src\assets\player_asset.cpp" />
     <ClCompile Include="src\assets\portal_asset.cpp" />
+    <ClCompile Include="src\assets\simple_obj_asset.cpp" />
     <ClCompile Include="src\assets\texture_asset.cpp" />
     <ClCompile Include="src\assets\text_asset.cpp" />
     <ClCompile Include="src\assets\timer_asset.cpp" />
