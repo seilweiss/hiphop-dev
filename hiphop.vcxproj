@@ -302,6 +302,7 @@
     <ClCompile Include="src\assets\dyna\bus_stop_asset.cpp" />
     <ClCompile Include="src\assets\dyna\taxi_asset.cpp" />
     <ClCompile Include="src\assets\dyna\teleport_asset.cpp" />
+    <ClCompile Include="src\assets\egen_asset.cpp" />
     <ClCompile Include="src\assets\env_asset.cpp" />
     <ClCompile Include="src\assets\fog_asset.cpp" />
     <ClCompile Include="src\assets\group_asset.cpp" />
