@@ -297,6 +297,7 @@
     <ClCompile Include="src\assets\cam_asset.cpp" />
     <ClCompile Include="src\assets\coll_table_asset.cpp" />
     <ClCompile Include="src\assets\cond_asset.cpp" />
+    <ClCompile Include="src\assets\destruct_obj_asset.cpp" />
     <ClCompile Include="src\assets\dispatcher_asset.cpp" />
     <ClCompile Include="src\assets\dyna\bus_stop_asset.cpp" />
     <ClCompile Include="src\assets\dyna\taxi_asset.cpp" />
