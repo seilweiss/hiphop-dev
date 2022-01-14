@@ -1,7 +1,5 @@
 #include "hiphop/assets/egen_asset.h"
 
-#include "hiphop/core/file.h"
-
 namespace HipHop {
 
 	void EGenAsset::Read(Stream* stream)

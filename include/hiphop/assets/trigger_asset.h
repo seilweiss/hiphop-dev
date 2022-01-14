@@ -1,14 +1,34 @@
 #pragma once
 
-#include "hiphop/core/default_asset.h"
+#include "hiphop/core/ent_asset.h"
 
 namespace HipHop {
 
-    struct TriggerAsset : DefaultAsset
-    {
-        HIPHOP_ASSET(AssetType::TRIG);
+	struct TriggerAsset : EntAsset
+	{
+		HIPHOP_ASSET(AssetType::TRIG);
 
-        TriggerAsset(Asset asset) : DefaultAsset(asset) {}
-    };
+		enum Type
+		{
+			Box,
+			Sphere,
+			VCylinder,
+			VCircle
+		};
+
+		enum Flags
+		{
+			OneWay = 0x1
+		};
+
+		TriggerAsset(Asset asset) : EntAsset(asset, BaseType::Trigger) {}
+
+		Vec3 p[4];
+		Vec3 direction;
+		uint32_t flags;
+
+		void Read(Stream* stream);
+		void Write(Stream* stream);
+	};
 
 }

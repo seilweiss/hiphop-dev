@@ -318,6 +318,7 @@
     <ClCompile Include="src\assets\texture_asset.cpp" />
     <ClCompile Include="src\assets\text_asset.cpp" />
     <ClCompile Include="src\assets\timer_asset.cpp" />
+    <ClCompile Include="src\assets\trigger_asset.cpp" />
     <ClCompile Include="src\core\base_asset.cpp" />
     <ClCompile Include="src\assets\counter_asset.cpp" />
     <ClCompile Include="src\core\asset.cpp" />
