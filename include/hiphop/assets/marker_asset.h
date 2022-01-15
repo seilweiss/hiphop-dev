@@ -1,20 +1,20 @@
 #pragma once
 
-#include "hiphop/core/asset_editor.h"
+#include "hiphop/core/asset_serializer.h"
 #include "hiphop/core/math.h"
 
 namespace HipHop {
 
-    struct MarkerAsset : AssetEditor
-    {
-        HIPHOP_ASSET(AssetType::MRKR);
+	struct MarkerAsset : AssetSerializer
+	{
+		HIPHOP_ASSET(AssetType::MRKR);
 
-        MarkerAsset(Asset asset) : AssetEditor(asset) {}
+		MarkerAsset(Asset asset) : AssetSerializer(asset) {}
 
-        Vec3 pos;
+		Vec3 pos;
 
-        void Read(Stream* stream);
-        void Write(Stream* stream);
-    };
+		void Read(Stream* stream);
+		void Write(Stream* stream);
+	};
 
 }

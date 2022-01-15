@@ -1,19 +1,19 @@
 #pragma once
 
-#include "hiphop/core/asset_editor.h"
+#include "hiphop/core/asset_serializer.h"
 
 namespace HipHop {
 
-    struct TextAsset : AssetEditor
-    {
-        HIPHOP_ASSET(AssetType::TEXT);
+	struct TextAsset : AssetSerializer
+	{
+		HIPHOP_ASSET(AssetType::TEXT);
 
-        TextAsset(Asset asset) : AssetEditor(asset) {}
+		TextAsset(Asset asset) : AssetSerializer(asset) {}
 
-        std::string text;
+		std::string text;
 
-        void Read(Stream* stream);
-        void Write(Stream* stream);
-    };
+		void Read(Stream* stream);
+		void Write(Stream* stream);
+	};
 
 }

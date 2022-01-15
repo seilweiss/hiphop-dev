@@ -1,28 +1,28 @@
 #pragma once
 
-#include "hiphop/core/asset_editor.h"
+#include "hiphop/core/asset_serializer.h"
 
 #include <vector>
 
 namespace HipHop {
 
-    struct CollTableAsset : AssetEditor
-    {
-        HIPHOP_ASSET(AssetType::COLL);
+	struct CollTableAsset : AssetSerializer
+	{
+		HIPHOP_ASSET(AssetType::COLL);
 
-        CollTableAsset(Asset asset) : AssetEditor(asset) {}
+		CollTableAsset(Asset asset) : AssetSerializer(asset) {}
 
-        struct Entry
-        {
-            uint32_t baseModel;
-            uint32_t colModel;
-            uint32_t camcolModel;
-        };
+		struct Entry
+		{
+			uint32_t baseModel;
+			uint32_t colModel;
+			uint32_t camcolModel;
+		};
 
-        std::vector<Entry> entries;
+		std::vector<Entry> entries;
 
-        void Read(Stream* stream);
-        void Write(Stream* stream);
-    };
+		void Read(Stream* stream);
+		void Write(Stream* stream);
+	};
 
 }

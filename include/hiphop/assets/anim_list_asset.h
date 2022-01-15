@@ -1,19 +1,19 @@
 #pragma once
 
-#include "hiphop/core/asset_editor.h"
+#include "hiphop/core/asset_serializer.h"
 
 namespace HipHop {
 
-    struct AnimListAsset : AssetEditor
-    {
-        HIPHOP_ASSET(AssetType::ALST);
+	struct AnimListAsset : AssetSerializer
+	{
+		HIPHOP_ASSET(AssetType::ALST);
 
-        AnimListAsset(Asset asset) : AssetEditor(asset) {}
+		AnimListAsset(Asset asset) : AssetSerializer(asset) {}
 
-        uint32_t ids[10] = {};
+		uint32_t ids[10] = {};
 
-        void Read(Stream* stream);
-        void Write(Stream* stream);
-    };
+		void Read(Stream* stream);
+		void Write(Stream* stream);
+	};
 
 }

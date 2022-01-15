@@ -1,6 +1,6 @@
 #pragma once
 
-#include "hiphop/core/asset_editor.h"
+#include "hiphop/core/asset_serializer.h"
 
 #include <vector>
 
@@ -74,11 +74,11 @@ namespace HipHop {
 		void Write(Stream* stream);
 	};
 
-	struct PipeInfoTableAsset : AssetEditor
+	struct PipeInfoTableAsset : AssetSerializer
 	{
 		HIPHOP_ASSET(AssetType::PIPT);
 
-		PipeInfoTableAsset(Asset asset) : AssetEditor(asset) {}
+		PipeInfoTableAsset(Asset asset) : AssetSerializer(asset) {}
 
 		std::vector<PipeInfo> pipeInfo;
 

@@ -272,7 +272,7 @@
     <ClInclude Include="include\hiphop\core\link_asset.h" />
     <ClInclude Include="include\hiphop\core\asset_types.h" />
     <ClInclude Include="include\hiphop\core\layer_types.h" />
-    <ClInclude Include="include\hiphop\core\asset_editor.h" />
+    <ClInclude Include="include\hiphop\core\asset_serializer.h" />
     <ClInclude Include="include\hiphop\core\endian.h" />
     <ClInclude Include="include\hiphop\core\file.h" />
     <ClInclude Include="include\hiphop\core\file_stream.h" />

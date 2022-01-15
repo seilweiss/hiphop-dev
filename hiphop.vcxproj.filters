@@ -396,10 +396,10 @@
     <ClInclude Include="include\hiphop_rotu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\hiphop\core\asset_editor.h">
+    <ClInclude Include="include\hiphop_assets.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\hiphop_assets.h">
+    <ClInclude Include="include\hiphop\core\asset_serializer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

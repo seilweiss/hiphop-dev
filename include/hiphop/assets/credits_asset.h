@@ -4,11 +4,11 @@
 
 namespace HipHop {
 
-    struct CreditsAsset : AssetEditor
-    {
-        HIPHOP_ASSET(AssetType::CRDT);
+	struct CreditsAsset : AssetSerializer
+	{
+		HIPHOP_ASSET(AssetType::CRDT);
 
-        CreditsAsset(Asset asset) : AssetEditor(asset) {}
-    };
+		CreditsAsset(Asset asset) : AssetSerializer(asset) {}
+	};
 
 }

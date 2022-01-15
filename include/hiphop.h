@@ -1,7 +1,7 @@
 #pragma once
 
 #include "hiphop/core/asset.h"
-#include "hiphop/core/asset_editor.h"
+#include "hiphop/core/asset_serializer.h"
 #include "hiphop/core/asset_types.h"
 #include "hiphop/core/base_asset.h"
 #include "hiphop/core/base_types.h"

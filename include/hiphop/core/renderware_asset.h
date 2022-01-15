@@ -1,6 +1,6 @@
 #pragma once
 
-#include "hiphop/core/asset_editor.h"
+#include "hiphop/core/asset_serializer.h"
 
 #ifdef HIPHOP_USE_RWS
 #include "rws_core.h"
@@ -11,29 +11,29 @@
 namespace HipHop {
 
 #ifdef HIPHOP_USE_RWS
-    struct RenderWareAsset : AssetEditor
-    {
-        RenderWareAsset(Asset asset) : AssetEditor(asset) {}
-        ~RenderWareAsset();
+	struct RenderWareAsset : AssetSerializer
+	{
+		RenderWareAsset(Asset asset) : AssetSerializer(asset) {}
+		~RenderWareAsset();
 
-        Rws::Chunk* GetChunk() const { return m_chunk; }
-        void SetChunk(Rws::Chunk* chunk);
+		Rws::Chunk* GetChunk() const { return m_chunk; }
+		void SetChunk(Rws::Chunk* chunk);
 
-        virtual void Read(Stream* stream);
-        virtual void Write(Stream* stream);
+		virtual void Read(Stream* stream);
+		virtual void Write(Stream* stream);
 
-    protected:
-        Rws::Chunk* ReadChunk(Stream* stream);
-        void WriteChunk(Rws::Chunk* chunk, Stream* stream);
+	protected:
+		Rws::Chunk* ReadChunk(Stream* stream);
+		void WriteChunk(Rws::Chunk* chunk, Stream* stream);
 
-    private:
-        Rws::Chunk* m_chunk = nullptr;
-    };
+	private:
+		Rws::Chunk* m_chunk = nullptr;
+	};
 #else
-    struct RenderWareAsset : DefaultAsset
-    {
-        RenderWareAsset(Asset asset) : DefaultAsset(asset) {}
-    };
+	struct RenderWareAsset : DefaultAsset
+	{
+		RenderWareAsset(Asset asset) : DefaultAsset(asset) {}
+	};
 #endif
 
 }
